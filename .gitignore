@@ -28,3 +28,25 @@ terraform.rc
 
 # Lock file - uncomment if you don't want to commit it
 # .terraform.lock.hcl
+
+
+#
+commands to deploy and push commands
+cd terraform-webapp
+terraform init
+terraform plan -var-file="envs/dev/dev.tfvars"
+terraform apply -var-file="envs/dev/dev.tfvars" override
+or 
+terraform init -backend-config=envs/dev/state.config
+terraform apply -var-file=envs/dev/dev.tfvars
+
+
+cd terraform-webapp
+git init
+git add .
+git rm -r --cached .terraform
+git commit -m "Initial commit: Terraform webapp infrastructure"
+git branch -M main
+git remote add origin https://github.com/[your-username]/[repo-name].git
+git push -u origin main
+#
