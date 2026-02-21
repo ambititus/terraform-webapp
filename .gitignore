@@ -37,7 +37,7 @@ terraform init
 terraform plan -var-file="envs/dev/dev.tfvars"
 terraform apply -var-file="envs/dev/dev.tfvars" override
 or 
-terraform init -backend-config=envs/dev/state.config
+terraform init -backend-config=envs/dev/state.config 
 terraform apply -var-file=envs/dev/dev.tfvars
 
 
