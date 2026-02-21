@@ -45,7 +45,7 @@ resource "aws_security_group" "web-sg" {
 
 resource "aws_vpc_security_group_ingress_rule" "ingress-http" {
   security_group_id = aws_security_group.web-sg.id
-  cidr_ipv4         = "0.0.0.0/0"
+  cidr_ipv4         = "91.182.88.134/32"
   from_port         = 80
   ip_protocol       = "tcp"
   to_port           = 80
@@ -54,7 +54,7 @@ resource "aws_vpc_security_group_ingress_rule" "ingress-http" {
 
 resource "aws_vpc_security_group_ingress_rule" "ingress-ssh" {
   security_group_id = aws_security_group.web-sg.id
-  cidr_ipv4         = "0.0.0.0/0" # replace with cidr_ipv4 = "203.0.113.42/32" 
+  cidr_ipv4         = "91.182.88.134/32"   
   #from laptop ip
   from_port   = 22
   ip_protocol = "tcp"
@@ -64,7 +64,7 @@ resource "aws_vpc_security_group_ingress_rule" "ingress-ssh" {
 
 resource "aws_vpc_security_group_egress_rule" "all_egress" {
   security_group_id = aws_security_group.web-sg.id
-  cidr_ipv4         = "0.0.0.0/0"
+  cidr_ipv4         = "91.182.88.134/32"
   ip_protocol       = "-1"
 }
 
